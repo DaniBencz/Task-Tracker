@@ -15,6 +15,8 @@ export class TasksComponent implements OnInit {
 
   // service used in the lifecycle method
   ngOnInit(): void {
-    this.tasks = this.taskService.getTasks();
+    this.taskService.getTasks()
+      // subscribing to the observable
+      .subscribe(tasks => this.tasks = tasks);
   }
 }
