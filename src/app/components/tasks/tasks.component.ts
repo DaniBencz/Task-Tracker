@@ -19,4 +19,8 @@ export class TasksComponent implements OnInit {
       // subscribing to the observable
       .subscribe(tasks => this.tasks = tasks);
   }
+
+  deleteTask(task: Task) {
+    this.taskService.deleteTask(task);
+  }
 }

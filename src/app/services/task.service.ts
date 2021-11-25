@@ -20,4 +20,8 @@ export class TaskService {
     // HttpClientModule also needs to be added to imports in app.module!
     return this.http.get<Task[]>(this.apiUrl);
   }
+
+  deleteTask(task: Task) {
+    console.log(task);
+  }
 }
