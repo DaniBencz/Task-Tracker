@@ -20,11 +20,19 @@ export class TasksComponent implements OnInit {
       .subscribe(tasks => this.tasks = tasks);
   }
 
-  deleteTask(task: Task) {
+  deleteTask(task: Task): void {
     this.taskService.deleteTask(task)
       .subscribe(() => {
         // removing deleted element from the UI
         this.tasks = this.tasks.filter(t => t.id !== task.id);
       });
+  }
+
+  toggleReminder(task: Task): void {
+    // effects UI element, but not DB
+    task.reminder = !task.reminder;
+
+    // update DB via the API
+    this.taskService.updateTaskReminder(task).subscribe();
   }
 }
