@@ -14,4 +14,8 @@ export class AddTaskComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void { }
+
+  onSubmit() {
+
+  }
 }
