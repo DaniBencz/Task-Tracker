@@ -21,6 +21,10 @@ export class TasksComponent implements OnInit {
   }
 
   deleteTask(task: Task) {
-    this.taskService.deleteTask(task);
+    this.taskService.deleteTask(task)
+      .subscribe(() => {
+        // removing deleted element from the UI
+        this.tasks = this.tasks.filter(t => t.id !== task.id);
+      });
   }
 }
